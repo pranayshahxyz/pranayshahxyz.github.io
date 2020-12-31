@@ -1,0 +1,73 @@
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    margin: 0px;
+}
+
+.content {
+    margin-top: 2em;
+    margin-left: 2em;
+}
+
+p {
+    font-size: 3em;
+    margin: 0px;
+}
+
+.title {
+    font-weight: bold;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* Skins */
+
+:root {
+    --bg-light: white;
+    --bg-dark: black;
+    --text-primary-color-light: black;
+    --text-primary-color-dark: white;
+    --text-secondary-color-light: #3C3C4399;
+    --text-secondary-color-dark: #EBEBF599;
+    --text-system-blue-color-light: #007AFFFF;
+    --text-system-blue-color-dark: #0A84FFFF;
+}
+
+
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: var(--bg-light);
+    }
+
+    .title, .subtitle {
+        color: var(--text-primary-color-light);
+    }
+
+    .link {
+        color: var(--text-secondary-color-light);
+    }
+
+    .link:hover, .link:active {
+        color: var(--text-system-blue-color-light);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: var(--bg-dark);
+    }
+
+    .title, .subtitle {
+        color: var(--text-primary-color-dark);
+    }
+
+    .link  {
+        color: var(--text-secondary-color-dark);
+    }
+
+    .link:hover, .link:active {
+        color: var(--text-system-blue-color-dark);
+    }
+}
