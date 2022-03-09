@@ -1,0 +1,81 @@
+/* containers */
+
+body, html {
+    height: 100%;
+}
+
+body, .content, .title-container, .bio-container, .contact-container {
+    display: flex;
+    flex-direction: column;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+}
+
+.content {
+    margin: 5%;
+}
+
+
+/* colors */
+
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: white;
+    }
+
+    .title, .bio, .contact, .link {
+        color: black;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: black;
+    }
+
+    .title, .bio, .contact, .link {
+        color: white;
+    }
+}
+
+
+/* text */
+
+.title, .bio, .contact, .link {
+    text-decoration: none;
+    margin: 0px;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 6em;
+}
+
+.bio, .contact {
+    font-weight: normal;
+    font-size: 3em;
+}
+
+
+/* hyperlink selectors */
+
+.email:hover {
+    color: grey;
+}
+
+.twitter:hover {
+    color: #1da1f2
+}
+
+.linkedin:hover {
+    color: #2a67bc
+}
+
+.github:hover {
+    color: #6ccf64;
+}
