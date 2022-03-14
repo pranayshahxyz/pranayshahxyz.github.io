@@ -1,81 +1,111 @@
+/* colors */
+
+:root {
+    --bg-light: white;
+    --bg-dark: black;
+    --text-primary-color-light: black;
+    --text-primary-color-dark: white;
+    --text-secondary-color-light: #3C3C4399;
+    --text-secondary-color-dark: #EBEBF599;
+    --email-theme-color: #BB001B;
+    --twitter-theme-color: #1DA1F2;
+    --linkedin-theme-color: #2A67BC;
+    --github-theme-color: #6CCF64;
+}
+
+
+
 /* containers */
 
 body, html {
+    width: 100%;
     height: 100%;
 }
 
-body, .content, .title-container, .bio-container, .contact-container {
-    display: flex;
-    flex-direction: column;
-}
 
 body {
-    font-family: 'Roboto', sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 0px;
 }
 
 .content {
-    margin: 5%;
-}
-
-
-/* colors */
-
-@media (prefers-color-scheme: light) {
-    body {
-        background-color: white;
-    }
-
-    .title, .bio, .contact, .link {
-        color: black;
-    }
-}
-
-@media (prefers-color-scheme: dark) {
-    body {
-        background-color: black;
-    }
-
-    .title, .bio, .contact, .link {
-        color: white;
-    }
+    display: flex;
+    flex-direction: column;
 }
 
 
 /* text */
 
-.title, .bio, .contact, .link {
-    text-decoration: none;
-    margin: 0px;
-}
-
 .title {
     font-weight: bold;
-    font-size: 12vmin;
+    font-size: 4em;
 }
 
 .bio, .contact {
     font-weight: normal;
-    font-size: 6vmin;
+    font-size: 2em;
 }
+
+h1, p {
+    margin: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+
+/* light/dark mode */
+
+@media (prefers-color-scheme: light) {
+    body {
+        background-color: var(--bg-light);
+    }
+
+    .title, .bio {
+        color: var(--text-primary-color-light);
+    }
+
+    .contact, .contact a {
+        color: var(--text-secondary-color-light);
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: var(--bg-dark);
+    }
+
+    .title, .bio {
+        color: var(--text-primary-color-dark);
+    }
+
+    .contact, .contact a {
+        color: var(--text-secondary-color-dark);
+    }
+}
+
 
 
 /* hyperlink selectors */
 
 .email:hover {
-    color: grey;
+    color: var(--email-theme-color);
 }
 
 .twitter:hover {
-    color: #1da1f2
+    color: var(--twitter-theme-color);
 }
 
 .linkedin:hover {
-    color: #2a67bc
+    color: var(--linkedin-theme-color);
 }
 
 .github:hover {
-    color: #6ccf64;
+    color: var(--github-theme-color);
 }
