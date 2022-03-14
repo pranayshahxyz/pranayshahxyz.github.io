@@ -53,12 +53,12 @@ body {
 
 .title {
     font-weight: bold;
-    font-size: 6em;
+    font-size: 12vmin;
 }
 
 .bio, .contact {
     font-weight: normal;
-    font-size: 3em;
+    font-size: 6vmin;
 }
 
 
