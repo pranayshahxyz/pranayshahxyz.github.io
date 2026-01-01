@@ -14,14 +14,15 @@ controls.maxDistance = 50;
 controls.minDistance = 2;
 controls.autoRotate = true;
 controls.autoRotateSpeed = -0.5;
+controls.rotateSpeed = -1;
 
 // Lighting - dim for space
-const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
 scene.add(ambientLight);
 
 // Starfield
 const starGeometry = new THREE.BufferGeometry();
-const starMaterial = new THREE.PointsMaterial({ color: 0x666666, size: 0.3 });
+const starMaterial = new THREE.PointsMaterial({ color: 0x888888, size: 0.3 });
 const starVertices = [];
 for (let i = 0; i < 10000; i++) {
     const x = (Math.random() - 0.5) * 2000;

@@ -8,6 +8,12 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+}
+
+canvas {
+    border: none;
+    outline: none;
 }
 
 h1 {
