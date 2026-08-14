@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    text {
+      fill: #000;
+      font: 600 22px/1 -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    }
+    @media (prefers-color-scheme: dark) {
+      text { fill: #fff; }
+    }
+  </style>
+  <text x="16" y="23" text-anchor="middle">P</text>
+</svg>
