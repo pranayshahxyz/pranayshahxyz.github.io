@@ -1,55 +1,165 @@
+:root {
+    --bg: light-dark(#fff, #000);
+    --text: light-dark(#000, #fff);
+    --muted: light-dark(#3c3c4399, #ebebf599);
+    --accent: light-dark(#007aff, #0a84ff);
+    --focus-ring: light-dark(#007aff66, #0a84ff66);
+    --pad-inline: max(1.25rem, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
+    --pad-block: max(1.5rem, env(safe-area-inset-top, 0px), env(safe-area-inset-bottom, 0px));
+    --type: clamp(1.375rem, 0.85rem + 2.2vw, 2rem);
+    --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 html {
     color-scheme: light dark;
-    background: light-dark(#fff, #000);
+    background: var(--bg);
     -webkit-text-size-adjust: 100%;
     text-size-adjust: 100%;
+    height: 100%;
 }
 
 body {
-    margin: 2em;
-    font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    margin: 0;
+    min-height: 100%;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding:
+        calc(var(--pad-block) + 0.5rem)
+        calc(var(--pad-inline) + 0.75rem)
+        calc(var(--pad-block) + 1rem);
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
     font-optical-sizing: auto;
-    color: light-dark(#000, #fff);
+    font-size: var(--type);
+    line-height: 1.15;
+    letter-spacing: -0.015em;
+    color: var(--text);
     -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+}
+
+main {
+    width: min(100%, 22rem);
 }
 
 h1 {
-    margin: 0;
-    font-size: 2em;
+    margin: 0 0 0.35em;
+    font-size: 1em;
     font-weight: 600;
-    line-height: 1.2;
+    line-height: 1.15;
+    letter-spacing: -0.022em;
+}
+
+nav {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.12em;
 }
 
 a {
-    display: block;
-    font-size: 2em;
-    line-height: 1.2;
-    color: light-dark(#3c3c4399, #ebebf599);
+    display: inline-flex;
+    align-items: center;
+    min-height: 1.35em;
+    padding: 0.2em 0;
+    margin-inline: -0.15em;
+    padding-inline: 0.15em;
+    color: var(--muted);
     text-decoration: none;
-    transition: color 0.2s;
+    border-radius: 0.2em;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+    transition:
+        color 0.22s var(--ease-out),
+        background-color 0.22s var(--ease-out);
 }
 
-a:hover,
+a:hover {
+    color: var(--accent);
+}
+
 a:active {
-    color: light-dark(#007aff, #0a84ff);
+    color: var(--accent);
+    opacity: 0.82;
 }
 
-h1, a {
-    animation: in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+a:focus-visible {
+    color: var(--accent);
+    background-color: var(--focus-ring);
+    box-shadow: 0 0 0 0.2em var(--focus-ring);
 }
 
-a:nth-child(2) { animation-delay: 0.05s; }
-a:nth-child(3) { animation-delay: 0.09s; }
-a:nth-child(4) { animation-delay: 0.13s; }
-a:nth-child(5) { animation-delay: 0.17s; }
+::selection {
+    background: light-dark(#007aff33, #0a84ff55);
+    color: var(--text);
+}
+
+h1,
+nav a {
+    animation: in 0.75s var(--ease-out) both;
+}
+
+nav a:nth-child(1) { animation-delay: 0.05s; }
+nav a:nth-child(2) { animation-delay: 0.09s; }
+nav a:nth-child(3) { animation-delay: 0.13s; }
+nav a:nth-child(4) { animation-delay: 0.17s; }
 
 @keyframes in {
     from {
         opacity: 0;
-        transform: translateY(8px);
+        transform: translateY(0.4em);
+    }
+}
+
+@media (min-width: 48rem) {
+    body {
+        padding-inline: max(4.5rem, 12vw);
+    }
+
+    main {
+        width: min(100%, 28rem);
+    }
+}
+
+@media (min-width: 64rem) {
+    body {
+        padding-inline: max(6rem, 16vw);
+    }
+}
+
+@media (max-height: 28rem) and (orientation: landscape) {
+    body {
+        align-items: flex-start;
+        padding-block: max(1rem, env(safe-area-inset-top, 0px), env(safe-area-inset-bottom, 0px));
+    }
+}
+
+@media (hover: none) and (pointer: coarse) {
+    a {
+        min-height: 2.75rem;
+        padding-block: 0.35rem;
+    }
+
+    nav {
+        gap: 0.05em;
     }
 }
 
 @media (prefers-reduced-motion: reduce) {
-    h1, a { animation: none; }
+    h1,
+    nav a {
+        animation: none;
+    }
+
+    a {
+        transition: none;
+    }
 }
