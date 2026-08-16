@@ -28,8 +28,6 @@
     --muted: light-dark(#3c3c4399, #ebebf599);
     --accent: light-dark(#007aff, #0a84ff);
     --focus-ring: light-dark(#007aff66, #0a84ff66);
-    --pad-inline: max(1.25rem, env(safe-area-inset-left, 0px), env(safe-area-inset-right, 0px));
-    --pad-block: max(1.5rem, env(safe-area-inset-top, 0px), env(safe-area-inset-bottom, 0px));
     --type: clamp(1.375rem, 0.85rem + 2.2vw, 2rem);
     --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -52,13 +50,11 @@ body {
     margin: 0;
     min-height: 100%;
     min-height: 100dvh;
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
     padding:
-        calc(var(--pad-block) + 0.5rem)
-        calc(var(--pad-inline) + 0.75rem)
-        calc(var(--pad-block) + 1rem);
+        max(2rem, calc(env(safe-area-inset-top, 0px) + 1.25rem))
+        max(1.5rem, calc(env(safe-area-inset-right, 0px) + 1rem))
+        max(2rem, calc(env(safe-area-inset-bottom, 0px) + 1.25rem))
+        max(1.5rem, calc(env(safe-area-inset-left, 0px) + 1rem));
     font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", system-ui, sans-serif;
     font-optical-sizing: auto;
     font-size: var(--type);
@@ -145,24 +141,15 @@ nav a:nth-child(4) { animation-delay: 0.17s; }
 
 @media (min-width: 48rem) {
     body {
-        padding-inline: max(4.5rem, 12vw);
+        padding:
+            max(2.5rem, calc(env(safe-area-inset-top, 0px) + 2rem))
+            max(3rem, 8vw)
+            max(2.5rem, calc(env(safe-area-inset-bottom, 0px) + 2rem))
+            max(3rem, 8vw);
     }
 
     main {
         width: min(100%, 28rem);
-    }
-}
-
-@media (min-width: 64rem) {
-    body {
-        padding-inline: max(6rem, 16vw);
-    }
-}
-
-@media (max-height: 28rem) and (orientation: landscape) {
-    body {
-        align-items: flex-start;
-        padding-block: max(1rem, env(safe-area-inset-top, 0px), env(safe-area-inset-bottom, 0px));
     }
 }
 
